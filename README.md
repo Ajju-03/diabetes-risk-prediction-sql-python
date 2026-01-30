@@ -1,5 +1,3 @@
-# Live Demo
-
 # Diabetes Risk Prediction 🩺
 * Diabetes risk prediction for analyzing paitents health and predicting the risk level.
 * Built using HTML, Css and bootstrap for frontend and machine learning algorithms using python
