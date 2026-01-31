@@ -5,11 +5,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 def train_model():
-    X_train, X_test, y_train, y_test = preprocess_data()
+    X_train_scaled, X_test_scaled, y_train_resampled, y_test = preprocess_data()
 
     model = LogisticRegression(max_iter=1000)
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
+    model.fit(X_train_scaled, y_train_resampled)
+    y_pred = model.predict(X_test_scaled)
 
     accuracy = accuracy_score(y_test, y_pred)
     cm = confusion_matrix(y_test, y_pred)
