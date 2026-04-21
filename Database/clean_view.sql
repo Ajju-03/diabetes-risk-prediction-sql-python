@@ -1,15 +1,36 @@
-CREATE OR REPLACE VIEW
-clean_diabetes_data AS
-SELECT
-      pregnancies,
-      NULLIF(glucose, 0) AS glucose,
-      NULLIF(bloodpressure, 0) AS bloodpressure,
-      NULLIF(skinthickness, 0) AS skinthickness,
-      NULLIF(insulin, 0) AS insulin,
-      NULLIF(bmi, 0) AS bmi,
-      diabetespedigreefunction,
-      age,
-      outcome
-FROM diabetes_data;    
+-- ============================================================
+--  clean_view.sql  — SQL VIEW: Replace invalid zeros with NULL
+-- ============================================================
 
-SELECT * FROM clean_diabetes_data LIMIT 5;  
+USE medical_db;
+
+-- Drop and recreate so it's always in sync with the table schema
+DROP VIEW IF EXISTS clean_diabetes_data;
+
+CREATE VIEW clean_diabetes_data AS
+SELECT
+    id,
+    pregnancies,
+    NULLIF(glucose,        0) AS glucose,          
+    NULLIF(blood_pressure, 0) AS blood_pressure,   
+    NULLIF(skin_thickness, 0) AS skin_thickness,  
+    NULLIF(insulin,        0) AS insulin,          
+    NULLIF(bmi,            0) AS bmi,             
+    diabetes_pedigree,
+    age,
+    outcome
+FROM diabetes_data;
+
+-- Verify the view works
+SELECT 'View created successfully.' AS status;
+
+-- Spot-check: count NULLs (should be > 0 now)
+SELECT
+    COUNT(*) - COUNT(glucose)        AS null_glucose,
+    COUNT(*) - COUNT(blood_pressure) AS null_blood_pressure,
+    COUNT(*) - COUNT(insulin)        AS null_insulin,
+    COUNT(*) - COUNT(bmi)            AS null_bmi
+FROM clean_diabetes_data;
+
+-- Preview clean data
+SELECT * FROM clean_diabetes_data LIMIT 5;

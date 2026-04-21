@@ -1,0 +1,37 @@
+artifact_path: /Users/gajaykumar/diabetes-risk-prediction-sql-python-1/mlruns/1/models/m-8eacb271b5a944d39b162d39811f8fde/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.19
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.10.0
+model_id: m-8eacb271b5a944d39b162d39811f8fde
+model_size_bytes: 136789
+model_uuid: m-8eacb271b5a944d39b162d39811f8fde
+prompts: null
+run_id: ff1c193a0eab4d3888a4cf072ca4f2bf
+signature:
+  inputs: '[{"type": "double", "name": "pregnancies", "required": true}, {"type":
+    "double", "name": "glucose", "required": true}, {"type": "double", "name": "blood_pressure",
+    "required": true}, {"type": "double", "name": "skin_thickness", "required": true},
+    {"type": "double", "name": "insulin", "required": true}, {"type": "double", "name":
+    "bmi", "required": true}, {"type": "double", "name": "diabetes_pedigree", "required":
+    true}, {"type": "double", "name": "age", "required": true}, {"type": "double",
+    "name": "glucose_bmi", "required": true}, {"type": "double", "name": "insulin_glucose_ratio",
+    "required": true}, {"type": "double", "name": "age_risk", "required": true}, {"type":
+    "double", "name": "bmi_category", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-04-20 09:59:33.440584'

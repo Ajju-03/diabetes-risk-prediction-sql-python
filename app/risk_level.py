@@ -29,12 +29,12 @@ def get_risk_level(data, probability):
     if data['DiabetesPedigreeFunction'] > 0.5:
         risk_score += 1
 
-    if risk_score >= 6 or probability >= 0.8:
-        level = "High Risk"
-    elif risk_score >= 3 or probability >= 0.5:
-        level = "Moderate Risk"
+    if risk_score >= 6 or probability >= 0.7:
+        level = "HIGH RISK"
+    elif risk_score >= 3 or probability >= 0.4:
+        level = "MEDIUM RISK"
     else:
-        level = "Low Risk"
+        level = "LOW RISK"
     
     if not factors and probability > 0.3:
         factors.append("Implicit Risk detected by AI analysis")
